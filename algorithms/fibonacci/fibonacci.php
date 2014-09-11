@@ -1,23 +1,14 @@
 <?php
+function fibo($n)
+{
+	return(($n < 2) ? 1 : fibo($n - 1) + fibo($n - 2));
+}
+
 class Fibonacci 
 {
-	function __construct()
+	function fib($n)
 	{
-		print("Fibonnaci\n");
-	}
-	
-	public function calcul($n)
-	{
-		return $n+1;
-	}
-	
-	public function calculateFibonacci($n)
-	{
-		if ( $n <= 1 )
-		{
-			return $n;
-		}
-		return calculateFibonacci($n-1) + calculateFibonacci($n-2);
+		return(($n < 2) ? 1 : fib($n - 1) + fib($n - 2));
 	} 	
 }
 ?>
