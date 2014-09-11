@@ -1,0 +1,20 @@
+DESIGN PATTERNS IN PHP
+vers. 1.0.0.2 - 11/09/2014
+============================
+
+1. documentation for Design Patterns and PHP manual
+   - http://sourcemaking.com/design_patterns
+   - http://pear.php.net/index.php - PEAR - PHP Extension and Application Repository 
+                                          - PEAR is a framework and distribution system for reusable PHP components
+   - http://framework.zend.com/manual/1.12/fr/coding-standard.coding-style.html                                          
+
+2. project structure
+   - algorithms
+   - design_patterns
+
+3. coding standards 
+   - http://pear.php.net/manual/en/standards.php
+   - http://framework.zend.com/manual/1.12/fr/coding-standard.coding-style.html
+ 
+4. documentation   
+ - adding the coding standards in a text file - coding_standards.txt

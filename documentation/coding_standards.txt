@@ -1,0 +1,23 @@
+Coding Standards - Table of Contents
+=======================================
+
+01.    Indenting and Line Length    - http://pear.php.net/manual/en/standards.indenting.php
+02.    Control Structures           - http://pear.php.net/manual/en/standards.control.php
+03.    Function Calls               - http://pear.php.net/manual/en/standards.funcalls.php 
+04.    Class Definitions            - http://pear.php.net/manual/en/standards.classdef.php
+05.    Function Definitions         - http://pear.php.net/manual/en/standards.funcdef.php
+06.    Arrays                       - http://pear.php.net/manual/en/standards.arrays.php
+07.    Comments                     - http://pear.php.net/manual/en/standards.comments.php
+08.    Including Code               - http://pear.php.net/manual/en/standards.including.php
+09.    PHP Code Tags                - http://pear.php.net/manual/en/standards.tags.php
+10.    Header Comment Blocks        - http://pear.php.net/manual/en/standards.header.php
+11.    Using SVN                    - http://pear.php.net/manual/en/standards.svn.php
+12.    Example URLs                 - http://pear.php.net/manual/en/standards.exampleurls.php
+13.    Naming Conventions           - http://pear.php.net/manual/en/standards.naming.php
+14.    File Formats                 - http://pear.php.net/manual/en/standards.file.php
+15.    E_STRICT-compatible code     - http://pear.php.net/manual/en/standards.e_strict.php
+16.    Error Handling Guidelines    - http://pear.php.net/manual/en/standards.errors.php
+17.    Best practices               - http://pear.php.net/manual/en/standards.bestpractices.php
+18.    Sample File                  - http://pear.php.net/manual/en/standards.sample.php
+19.    The PEAR toolbox             - http://pear.php.net/manual/en/standards.toolbox.php
+
