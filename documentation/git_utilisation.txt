@@ -1,0 +1,19 @@
+Utilisation GIT avec les branches
+=================================
+
+1. Dans la branche MASTER on va avoir toujours les derniers versions teste et avec un TAG(avec la description des modifications)
+
+2. On va travailler dans notre branche /dev/enrico et /dev/pascal
+
+3. Chaque fois il va falloir faire un PULL de la branche MASTER vers ta branche MASTER(locale) pour voir si il y a des modifications
+   3.1 - si il y a des modifications dans la branche MASTER après le PULL il va falloir les MERGE dans ta branche /dev/pascal - si tu veux les integrer
+   3.2 - si il n'y a pas des modifications dans la branche MASTER tu peux switch-er dans la branche /dev/pascal pour pouvoir continuer travailler
+  
+4. Si on fait de modifications et de tests dans la branche /dev/pascal ou /dev/enrico
+   4.1 - on va faire le COMMIT de la branche avec un petit résume dans le readme.txt.
+   4.2 - on va pas faire le TAG ici parce que le TAG sera pour la branche MASTER - pour savoir la nouvelle version
+   4.3 - après le COMMIT il faut switch-er vers la branche MASTER pour commencer a faire le MERGE de la branche /dev/enrico ou /dev/pascal
+   4.4 - après le MERGE (qui correspond a un NOUVEAU COMMIT mais pour la branche MASTER) il faut ajouter un TAG avec
+         un commentaire pour savoir les modifications de la branche MASTER
+        
+5. La pas final sera PUSH TO UPSTREAM to send to GITHUB les dernières modifications          
