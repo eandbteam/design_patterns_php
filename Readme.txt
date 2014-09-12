@@ -1,5 +1,5 @@
 DESIGN PATTERNS IN PHP
-vers. 1.0.0.2 - 11/09/2014
+vers. 1.0.0.5 - 12/09/2014
 ============================
 
 1. documentation for Design Patterns and PHP manual
@@ -18,3 +18,8 @@ vers. 1.0.0.2 - 11/09/2014
  
 4. documentation   
  - adding the coding standards in a text file - coding_standards.txt
+ 
+5. Singleton Design Pattern in PHP with 	
+	- singleton_class.php - the main class
+	- singleton.php       - the implementation
+	- singleton.doc       - the documentation for the Singleton Pattern
