@@ -1,5 +1,5 @@
 <?php 
-include 'singleton.php';
+include 'singleton_class.php';
 writeln('BEGIN TESTING SINGLETON PATTERN');
 writeln('');
 
