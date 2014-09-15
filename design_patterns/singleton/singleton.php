@@ -47,4 +47,6 @@ while($row = $connect->fetchArray($query)) {
 	echo $row["nom"] . "<br>";
 	
 }
+$connect->Close();
+
 	?>

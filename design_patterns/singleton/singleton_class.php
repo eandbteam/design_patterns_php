@@ -7,7 +7,7 @@
  * 
  * 
  * 
- * 
+ * $query = "SELECT name FROM mytable" or die("Error in the consult.." . mysqli_error($link)); 
  * 
  * 
  * 
@@ -53,7 +53,7 @@ class Singleton {
 	
 	public function sendQuery($query){
 		
-		$this->result = mysqli_query($this->link, $query);
+		$this->result = mysqli_query($this->link, $query) or die("Error in the consult.." . mysqli_error($this->link));
 		
 		//display information:
 		return $this->result;
@@ -64,9 +64,14 @@ class Singleton {
 	public function fetchArray(){
 		return mysqli_fetch_array($this->result);
 		
-		
-		
 	}
+	 public function Close(){
+	 	mysqli_close ( $this->link );
+	 }
+		
+		
+		
+		
 }
 
 
