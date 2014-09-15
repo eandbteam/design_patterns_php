@@ -40,7 +40,11 @@ function writeln($line_in) {
 $connect = singleton::getInstance();
 $query = $connect->sendQuery("select * from polo");
 var_dump($connect);
+
+$connect2 = singleton::getInstance();
+var_dump($connect2);
 while($row = $connect->fetchArray($query)) {
 	echo $row["nom"] . "<br>";
+	
 }
 	?>

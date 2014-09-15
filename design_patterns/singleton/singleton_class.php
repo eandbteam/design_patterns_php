@@ -24,6 +24,7 @@ class Singleton {
 	private $user ="root";
 	private $password = "";
 	private $database = "test";
+	private $link;
 	
 	private static $_instance = null;
 	/**
