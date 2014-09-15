@@ -23,3 +23,5 @@ vers. 1.0.0.5 - 12/09/2014
 	- singleton_class.php - the main class
 	- singleton.php       - the implementation
 	- singleton.doc       - the documentation for the Singleton Pattern
+	
+	add singleton class for connect Mysql DB with query on local server

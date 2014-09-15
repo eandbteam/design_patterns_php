@@ -1,5 +1,8 @@
 <?php 
 include 'singleton_class.php';
+
+
+/*
 writeln('BEGIN TESTING SINGLETON PATTERN');
 writeln('');
 
@@ -31,5 +34,13 @@ writeln('END TESTING SINGLETON PATTERN');
 
 function writeln($line_in) {
 	echo $line_in.'<br/>';
+}
+*/
+
+$connect = singleton::getInstance();
+$query = $connect->sendQuery("select * from polo");
+var_dump($connect);
+while($row = $connect->fetchArray($query)) {
+	echo $row["nom"] . "<br>";
 }
 	?>

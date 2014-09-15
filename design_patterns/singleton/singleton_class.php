@@ -2,6 +2,75 @@
 /*
  *   Singleton classes
 */
+/*$link = mysqli_connect("myhost","myuser","mypassw","mybd") or die("Error " . mysqli_error($link));
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
+
+class Singleton {
+	/**
+	 * @var Singleton
+	 * @access private
+	 * @static
+	 */
+	private $host = "localhost";
+	private $user ="root";
+	private $password = "";
+	private $database = "test";
+	
+	private static $_instance = null;
+	/**
+	 * Constructeur de la classe
+	 *
+	 * @param void
+	 * @return void
+	 */
+	private function __construct() {
+		
+		$this->link = mysqli_connect($this->host,$this->user,$this->password,$this->database) or die("Error " . mysqli_error($this->link));
+	}
+	/**
+	 * Méthode qui crée l'unique instance de la classe
+	 * si elle n'existe pas encore puis la retourne.
+	 *
+	 * @param void
+	 * @return Singleton
+	 */
+	public static function getInstance() {
+		if(is_null(self::$_instance)) {
+			self::$_instance = new Singleton();
+		}
+		return self::$_instance;
+	}
+	
+	public function sendQuery($query){
+		
+		$this->result = mysqli_query($this->link, $query);
+		
+		//display information:
+		return $this->result;
+		
+		
+	}
+	
+	public function fetchArray(){
+		return mysqli_fetch_array($this->result);
+		
+		
+		
+	}
+}
+
+
+
+/*
 class BookSingleton {
 	private $author = 'Gamma, Helm, Johnson, and Vlissides';
 	private $title  = 'Design Patterns';
@@ -64,4 +133,5 @@ class BookBorrower {
 		$this->borrowedBook->returnBook($this->borrowedBook);
 	}
 }
+*/
 ?>
