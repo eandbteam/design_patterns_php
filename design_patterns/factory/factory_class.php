@@ -23,3 +23,4 @@ class AutomobileFactory
 		return new Automobile($make, $model);
 	}
 }
+?>
