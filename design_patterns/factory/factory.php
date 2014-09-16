@@ -6,3 +6,4 @@ include 'factory_class.php';
 $veyron = AutomobileFactory::create('Bugatti', 'Veyron');
 
 print_r($veyron->get_make_and_model()); // outputs "Bugatti Veyron"
+?>
