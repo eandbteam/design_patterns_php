@@ -74,8 +74,11 @@ class Singleton {
 		
 	}
 	 public function Close(){
+	 	
 	 	mysqli_close ( $this->link );
 	 	self::$_instance = null;
+	 		 	
+	 	
 	 	
 	 }
 		
