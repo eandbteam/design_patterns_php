@@ -39,8 +39,8 @@ function writeln($line_in) {
 
 ///$connect = new singleton();==> invalid context like design pattern singleton for testing
 
-function connect($close){
-$connect = singleton::getInstance($host='localhost',$user='root',$password='',$database='test');
+function connect($host,$user,$password,$database,$close){
+$connect = singleton::getInstance($host,$user,$password,$database);
 
 $query = $connect->sendQuery("select * from polo");
 if ($close == false){
@@ -53,9 +53,9 @@ if ($close == true){
 }
 }
 
-function connect2($close){
+function connect2($host,$user,$password,$database,$close){
 
-$connect2 = singleton::getInstance($host='192.168.1.35',$user='polo',$password='fus',$database='test');
+$connect2 = singleton::getInstance($host,$user,$password,$database);
 if ($close == false){
 echo 'connect2'.'<br>';
 var_dump($connect2);
@@ -72,8 +72,8 @@ while($row = $connect->fetchArray($query)) {
 }
 */
 
-function connect3($close){
-$connect3 = singleton::getInstance($host='192.168.1.35',$user='test',$password='test',$database='test');
+function connect3($host,$user,$password,$database,$close){
+$connect3 = singleton::getInstance($host,$user,$password,$database);
 if ($close == false){
 echo 'connect3'.'<br>';
 var_dump($connect3);
@@ -84,14 +84,14 @@ if ($close == true){
 }
 }
 
-connect(false);
-connect2(false);
-connect3(false);
+connect($host='localhost',$user='root',$password='',$database='test',false);
+connect2($host='192.168.1.35',$user='polo',$password='fus',$database='test',false);
+connect3($host='192.168.1.35',$user='test',$password='test',$database='test',false);
 
-connect(true);
-connect2(false);
-connect2(true);
-connect3(false);
+connect($host='localhost',$user='root',$password='',$database='test',true);
+connect2($host='192.168.1.35',$user='polo',$password='fus',$database='test',false);
+connect2($host='192.168.1.35',$user='polo',$password='fus',$database='test',true);
+connect3($host='192.168.1.35',$user='test',$password='test',$database='test',false);
 
 
 
