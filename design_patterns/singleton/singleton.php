@@ -37,16 +37,18 @@ function writeln($line_in) {
 }
 */
 
-$connect = singleton::getInstance();
+$connect = singleton::getInstance($host='localhost',$user='root',$password='',$database='test');
 $query = $connect->sendQuery("select * from polo");
 var_dump($connect);
 
-$connect2 = singleton::getInstance();
+$connect2 = singleton::getInstance($host='192.168.1.35',$user='polo',$password='fus',$database='test');
 var_dump($connect2);
+/*
 while($row = $connect->fetchArray($query)) {
 	echo $row["nom"] . "<br>";
 	
 }
+*/
 $connect->Close();
 
 	?>

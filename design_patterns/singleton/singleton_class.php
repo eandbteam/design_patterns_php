@@ -9,7 +9,9 @@
  * 
  * $query = "SELECT name FROM mytable" or die("Error in the consult.." . mysqli_error($link)); 
  * 
- * 
+ *  Ownership of the single instance cannot be reasonably assigned
+    Lazy initialization is desirable
+    Global access is not otherwise provided for
  * 
  * 
  */
@@ -20,10 +22,10 @@ class Singleton {
 	 * @access private
 	 * @static
 	 */
-	private $host = "localhost";
-	private $user ="root";
-	private $password = "";
-	private $database = "test";
+	private $host ;
+	private $user ;
+	private $password ;
+	private $database ;
 	private $link;
 	
 	private static $_instance = null;
@@ -33,7 +35,13 @@ class Singleton {
 	 * @param void
 	 * @return void
 	 */
-	private function __construct() {
+	private function __construct($host,$user,$password,$database) {
+		$this->host = $host;
+		$this->user = $user;
+		$this->password = $password;
+		$this->database = $database;
+		
+		
 		
 		$this->link = mysqli_connect($this->host,$this->user,$this->password,$this->database) or die("Error " . mysqli_error($this->link));
 	}
@@ -44,9 +52,9 @@ class Singleton {
 	 * @param void
 	 * @return Singleton
 	 */
-	public static function getInstance() {
+	public static function getInstance($host,$user,$password,$database) {
 		if(is_null(self::$_instance)) {
-			self::$_instance = new Singleton();
+			self::$_instance = new Singleton($host,$user,$password,$database);
 		}
 		return self::$_instance;
 	}
@@ -67,10 +75,11 @@ class Singleton {
 	}
 	 public function Close(){
 	 	mysqli_close ( $this->link );
+	 	self::$_instance = null;
+	 	
 	 }
 		
-		
-		
+	
 		
 }
 
