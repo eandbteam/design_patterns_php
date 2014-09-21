@@ -11,33 +11,52 @@ include 'factory_class.php';
  * 
  * 
  */
-$config_mysql_open = array('path_to_class' =>'singleton','classe'=>'MySQL','user'=>'admin','close'=>false);
-$config_mysql_close = array('path_to_class' =>'singleton','classe'=>'MySQL','user'=>'admin','close'=>true);
-$config_prototype = array('path_to_class' =>'prototype','classe'=>'PHPBookPrototype','user'=>null,'close'=>false);
+$config_mysql = array('path_to_class' =>'singleton','classe'=>'MySQL');
+
+
+$config_prototype = array('path_to_class' =>'prototype','classe'=>'PHPBookPrototype');
 
 try
 {
-  $mysql = DBFactory::load($config_mysql_open);
+  $mysql = DBFactory::load($config_mysql);
   //$mysql = DBFactory::load($config_mysql_open);
 }
 catch (RuntimeException $e)
 {
   echo $e->getMessage();
 }
+$instance = MySQL::getInstance($host='localhost',$user='root',$password='',$database='test');
+$query = $instance->sendQuery("select * from polo");
 
-var_dump($mysql);
-
-$query = $mysql->sendQuery("select * from polo");
-
-while($row = $mysql->fetchArray($query)) {
+while($row = $instance->fetchArray($query)) {
 	echo $row["nom"] . "<br>";
 
 }
 
+var_dump($instance);
+
+$instance->Close();
+
+$instance2 = MySQL::getInstance($host='192.168.1.35',$user='test',$password='test',$database='test');
+
+var_dump($instance2);
+
+/*
+try
+{
+	$mysql = DBFactory::load($config_mysql_open2);
+	//$mysql = DBFactory::load($config_mysql_open);
+}
+catch (RuntimeException $e)
+{
+	echo $e->getMessage();
+}
+*/
+
 
 try
 {
-	$mysql = DBFactory::load($config_prototype);
+	$prototype = DBFactory::load($config_prototype);
 }
 catch (RuntimeException $e)
 {

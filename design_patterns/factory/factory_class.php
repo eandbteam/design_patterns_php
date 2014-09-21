@@ -48,29 +48,12 @@ class DBFactory
     {
     	if ($sgbdr == 'MySQL'){ /////filtre connect DB 
     		
-    		if ($user_lite == 'admin'){
-    			$host='localhost';
-    			$user='root';
-    			$password='';
-    			$database='test';
-    		}
-    		elseif($user_lite == 'test'){
-    			$host='192.168.1.35';
-    			$user='test';
-    			$password='test';
-    			$database='test';
-    		}
-    		elseif($user_lite == 'polo'){
-    			$host='192.168.1.35';
-    			$user='polo';
-    			$password='fus';
-    			$database='test';
-    		}	
+    			
     		
     
     		
       include $chemin;
-      return $sgbdr::getInstance($host,$user,$password,$database);
+      //return $sgbdr::getInstance($host,$user,$password,$database);
     	}
     	else{
       require $chemin;

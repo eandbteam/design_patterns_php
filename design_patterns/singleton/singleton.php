@@ -1,5 +1,5 @@
 <?php 
-include 'singleton_MySQL_class.php';
+include 'singleton_class.php';
 
 
 /*
@@ -40,7 +40,7 @@ function writeln($line_in) {
 //$connect = new singleton($host='localhost',$user='root',$password='',$database='test');//==> invalid context like design pattern singleton for testing
 
 function connect($host,$user,$password,$database,$close){
-$connect = singleton_MySQL::getInstance($host,$user,$password,$database);
+$connect = MySQL::getInstance($host,$user,$password,$database);
 
 $query = $connect->sendQuery("select * from polo");
 if ($close == false){
@@ -55,7 +55,7 @@ if ($close == true){
 
 function connect2($host,$user,$password,$database,$close){
 
-$connect2 = singleton_MySQL::getInstance($host,$user,$password,$database);
+$connect2 = MySQL::getInstance($host,$user,$password,$database);
 if ($close == false){
 echo 'connect2'.'<br>';
 var_dump($connect2);
@@ -73,7 +73,7 @@ while($row = $connect->fetchArray($query)) {
 */
 
 function connect3($host,$user,$password,$database,$close){
-$connect3 = singleton_MySQL::getInstance($host,$user,$password,$database);
+$connect3 = MySQL::getInstance($host,$user,$password,$database);
 if ($close == false){
 echo 'connect3'.'<br>';
 var_dump($connect3);
