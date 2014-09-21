@@ -9,8 +9,29 @@ class DBFactory
 	///////($host='localhost',$user='root',$password='',$database='test',false);
 ////////////connect2($host='192.168.1.35',$user='polo',$password='fus',$database='test',false);
 //////////connect3($host='192.168.1.35',$user='test',$password='test',$database='test'
-  public static function load($path,$sgbdr,$user_lite) //$user_lite  $host,$user,$password,$database
+  //public static function load($path,$sgbdr,$user_lite,$close) //$user_lite  $host,$user,$password,$database
+  public static function load($param)
+    
+    
+   
   {
+
+  	foreach ($param as $key => $value){
+  		if ($key == 'path_to_class'){
+  			$path = $value;
+  		}
+  		if ($key == 'classe'){
+  			$sgbdr = $value;
+  		}
+  		if ($key == 'user'){
+  			$user_lite = $value;
+  		}
+  		if ($key == 'close'){
+  			$close = $value;
+  		}
+  		
+  	}
+  	
   	
   	
   	if ($sgbdr == 'singleton'){
