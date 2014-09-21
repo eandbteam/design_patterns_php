@@ -1,30 +1,29 @@
 <?php
-class Automobile
+class DBFactory
 {
-	private $vehicle_make;
-	private $vehicle_model;
-
-	public function __construct($make, $model)
-	{
-		$this->vehicle_make = $make;
-		$this->vehicle_model = $model;
-	}
-
-	public function get_make_and_model()
-	{
-		return $this->vehicle_make . ' ' . $this->vehicle_model;
-	}
-}
-
-class AutomobileFactory
-{
-	public static function create($make, $model)
-	{
-		return new Automobile($make, $model);
-	}
-	
-	
-	
-	
+  public static function load($sgbdr,$host,$user,$password,$database) //$sgbdr
+  {
+  	
+    $classe = 'singleton_' . $sgbdr;
+    echo $classe. '_class.php';
+    
+    if (file_exists($chemin = '../singleton/'.$classe . '_class.php'))
+    {
+    	if ($sgbdr == 'MySQL'){
+      include $chemin;
+      return singleton_MySQL::getInstance($host,$user,$password,$database);
+    	}
+    	else{
+      require $chemin;
+      return new $classe;
+    	}
+      
+      
+    }
+    else
+    {
+      throw new RuntimeException('La classe <strong>' . $classe . '</strong> n\'a pu être trouvée !');
+    }
+  }
 }
 ?>

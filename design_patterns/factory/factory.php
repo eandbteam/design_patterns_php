@@ -1,9 +1,19 @@
 <?php
+
 include 'factory_class.php';
+try
+{
+  $mysql = DBFactory::load('MySQL',$host='localhost',$user='root',$password='',$database='test');
+}
+catch (RuntimeException $e)
+{
+  echo $e->getMessage();
+}
 
 
-// have the factory create the Automobile object
-$veyron = AutomobileFactory::create('Bugatti', 'Veyron');
+var_dump($mysql);
 
-print_r($veyron->get_make_and_model()); // outputs "Bugatti Veyron"
+
+
+
 ?>
