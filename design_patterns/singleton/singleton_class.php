@@ -16,7 +16,7 @@
  * 
  */
 
-class Singleton_MySQL {
+class MySQL {
 	/**
 	 * @var Singleton
 	 * @access private
@@ -54,7 +54,7 @@ class Singleton_MySQL {
 	 */
 	public static function getInstance($host,$user,$password,$database) {
 		if(is_null(self::$_instance)) {
-			self::$_instance = new Singleton_MySQL($host,$user,$password,$database);
+			self::$_instance = new MySQL($host,$user,$password,$database);
 		}
 		return self::$_instance;
 	}

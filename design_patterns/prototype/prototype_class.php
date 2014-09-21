@@ -1,5 +1,5 @@
 <?php
-abstract class BookPrototype {
+abstract class prototype {
 	protected $title;
 	protected $topic;
 	abstract function __clone();
@@ -14,7 +14,7 @@ abstract class BookPrototype {
 	}
 }
 
-class PHPBookPrototype extends BookPrototype {
+class PHPBookPrototype extends prototype {
 	function __construct() {
 		$this->topic = 'PHP';
 	}
@@ -22,7 +22,7 @@ class PHPBookPrototype extends BookPrototype {
 	}
 }
 
-class SQLBookPrototype extends BookPrototype {
+class SQLBookPrototype extends prototype {
 	function __construct() {
 		$this->topic = 'SQL';
 	}
