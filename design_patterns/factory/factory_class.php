@@ -15,7 +15,10 @@ class DBFactory
     
    
   {
-
+//var_dump($param);
+  	$chemin = null;
+  	$classe = null;
+  	
   	foreach ($param as $key => $value){
   		if ($key == 'path_to_class'){
   			$path = $value;
@@ -41,23 +44,29 @@ class DBFactory
   	else{
       $classe = $sgbdr;
   	}
-    echo $path. '_class.php'.'<br>';
+  	
+    echo $path. '_class.php line 45'.'<br>';
+    echo $sgbdr.'<br>';
     
     echo '../design_patterns/'.$path.'/'.$path. '_class.php'.'<br>';
     if (file_exists($chemin = '../../design_patterns/'.$path.'/'.$path. '_class.php'))
     {
+    	echo 'file_exist'.'<br>';
     	if ($sgbdr == 'MySQL'){ /////filtre connect DB 
     		
     			
-    		
-    
-    		
-      include $chemin;
+    		echo 'includeeeeeeeeeeeeeeeeeeeeeeeeee'.'<br>';
+    		include $chemin;
+    			
       //return $sgbdr::getInstance($host,$user,$password,$database);
     	}
     	else{
-      require $chemin;
-      return new $classe;
+    		
+    		echo 'requireeeeeeeeeeeeeeeeeeeeeeeeee'.'<br>';
+    		require_once $chemin;
+    		
+        return new $classe;
+    		
     	}
       
       

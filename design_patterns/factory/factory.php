@@ -13,7 +13,7 @@ include 'factory_class.php';
  */
 $config_mysql = array('path_to_class' =>'singleton','classe'=>'MySQL');
 
-
+$config_prototype_html1 = array('path_to_class' =>'prototype','classe'=>'HTMLPageBuilder');
 $config_prototype = array('path_to_class' =>'prototype','classe'=>'PHPBookPrototype');
 
 try
@@ -97,8 +97,42 @@ function writeln($line_in) {
 }
 /////////////////////////////////////////////////////////////////////////////////////////////
 
+//$config_prototype_html2 = array('path_to_class' =>'prototype','classe'=>'HTMLPageDirector($config_prototype_html1)');
+/*
+ * $pageBuilder = new HTMLPageBuilder();
+$pageDirector = new HTMLPageDirector($pageBuilder);
+ * 
+ * 
+ */
+
+try
+{
+	$prototype_html1 = DBFactory::load($config_prototype_html1);
+}
+catch (RuntimeException $e)
+{
+	echo $e->getMessage();
+}
+
+echo 'polo0000000000000000000000000000000000000000'.'<br>';
+$pageDirector = new HTMLPageDirector($prototype_html1);
 
 
+writeln_html('BEGIN TESTING BUILDER PATTERN');
+writeln_html('');
+
+//$pageBuilder = new HTMLPageBuilder();
+//$pageDirector = new HTMLPageDirector($pageBuilder);
+$pageDirector->buildPage();
+$page = $pageDirector->GetPage();
+writeln_html($page->showPage());
+writeln_html('');
+
+writeln_html('END TESTING BUILDER PATTERN');
+
+function writeln_html($line_in) {
+	echo $line_in."<br/>";
+}
 
 
 ?>
