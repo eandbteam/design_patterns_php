@@ -26,3 +26,5 @@ vers. 1.0.0.5 - 12/09/2014
 	
 6.	add singleton class for connect Mysql DB with query on local server
 
+7.  add factory class 
+
