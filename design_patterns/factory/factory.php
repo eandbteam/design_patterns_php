@@ -1,6 +1,7 @@
 <?php
 
 include 'factory_class.php';
+//include 'observer_class.php';
 
 /////definir utilisateur////////////
 
@@ -11,9 +12,10 @@ include 'factory_class.php';
  * 
  * 
  */
+
 $config_mysql = array('path_to_class' =>'singleton','classe'=>'MySQL');
 
-$config_prototype_html1 = array('path_to_class' =>'prototype','classe'=>'HTMLPageBuilder');
+//$config_prototype_html1 = array('path_to_class' =>'prototype','classe'=>'HTMLPageBuilder');
 $config_prototype = array('path_to_class' =>'prototype','classe'=>'PHPBookPrototype');
 
 try
@@ -104,7 +106,7 @@ $pageDirector = new HTMLPageDirector($pageBuilder);
  * 
  * 
  */
-
+/*
 try
 {
 	$prototype_html1 = DBFactory::load($config_prototype_html1);
@@ -133,6 +135,50 @@ writeln_html('END TESTING BUILDER PATTERN');
 function writeln_html($line_in) {
 	echo $line_in."<br/>";
 }
+*/
+
+//include 'observer_class.php';
+
+$config_observer_subject = array('path_to_class' =>'observer','classe'=>'PatternSubject');
+$config_observer_subject2 = array('path_to_class' =>'singleton','classe'=>'MySQL');
+$config_observer_observer = array('path_to_class' =>'observer','classe'=>'PatternObserver');
+
+
+$instance2->Close();
+try
+{
+	$subject = DBFactory::load($config_observer_subject2);
+	
+}
+catch (RuntimeException $e)
+{
+	echo $e->getMessage();
+}
+
+try
+{
+	$observer = DBFactory::load($config_observer_observer);
+}
+catch (RuntimeException $e)
+{
+	echo $e->getMessage();
+}
+
+$instance_subject = MySQL::getInstance($host='192.168.1.35',$user='test',$password='test',$database='test');
+
+
+writeln('BEGIN TESTING OBSERVER PATTERN');
+writeln('');
+
+//$patternGossiper = new PatternSubject();
+//$patternGossipFan = new PatternObserver();
+$subject->attach($observer);
+$subject->updateFavorites('abstract factory, decorator, visitor');
+$subject->updateFavorites('abstract factory, observer, decorator');
+$subject->detach($observer);
+$subject->updateFavorites('abstract factory, observer, paisley');
+
+writeln('END TESTING OBSERVER PATTERN');
 
 
 ?>

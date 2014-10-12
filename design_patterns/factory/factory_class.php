@@ -56,7 +56,7 @@ class DBFactory
     		
     			
     		echo 'includeeeeeeeeeeeeeeeeeeeeeeeeee'.'<br>';
-    		include $chemin;
+    		include_once $chemin;
     			
       //return $sgbdr::getInstance($host,$user,$password,$database);
     	}
@@ -76,5 +76,12 @@ class DBFactory
       throw new RuntimeException('La classe <strong>' . $classe . '</strong> n\'a pu être trouvée !');
     }
   }
+  
+
+  	
+  
+}
+class MethodFactory{
+	
 }
 ?>

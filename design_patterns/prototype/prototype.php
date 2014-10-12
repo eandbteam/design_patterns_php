@@ -33,21 +33,9 @@ function writeln($line_in) {
 
 
 
-writeln_html('BEGIN TESTING BUILDER PATTERN');
-writeln_html('');
 
-$pageBuilder = new HTMLPageBuilder();
-$pageDirector = new HTMLPageDirector($pageBuilder);
-$pageDirector->buildPage();
-$page = $pageDirector->GetPage();
-writeln_html($page->showPage());
-writeln_html('');
 
-writeln_html('END TESTING BUILDER PATTERN');
 
-function writeln_html($line_in) {
-	echo $line_in."<br/>";
-}
 
 
 
