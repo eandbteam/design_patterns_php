@@ -1,5 +1,6 @@
 <?php
-class DBFactory
+require 'e:\wamp\www\design_patterns_php\design_patterns\observer\observer_class.php';
+class DBFactory //extends PatternObserver
 {
 	private $host;
 	private $user;
@@ -10,6 +11,10 @@ class DBFactory
 ////////////connect2($host='192.168.1.35',$user='polo',$password='fus',$database='test',false);
 //////////connect3($host='192.168.1.35',$user='test',$password='test',$database='test'
   //public static function load($path,$sgbdr,$user_lite,$close) //$user_lite  $host,$user,$password,$database
+	public function dependance() {
+		$bar = new PatternObserver(); // ou $bar = Bar::getInstance()
+		return $bar;
+	}
   public static function load($param)
     
     

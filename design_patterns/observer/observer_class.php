@@ -1,4 +1,5 @@
 <?php
+
 abstract class AbstractObserver {
 	abstract function update(AbstractSubject $subject_in);
 }
@@ -53,6 +54,18 @@ class PatternSubject extends AbstractSubject {
 		return $this->favorites;
 	}
 }
+class PatternObserver2
+{
+	
+	public function observer($object){
+		
+		
+		
+	}
+	
+	
+	
+} 
 
 
 ?>

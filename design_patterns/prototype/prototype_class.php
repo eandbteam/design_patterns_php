@@ -1,5 +1,7 @@
 <?php
-abstract class prototype {
+
+abstract class prototype //extends PatternObserver 
+{
 	protected $title;
 	protected $topic;
 	abstract function __clone();

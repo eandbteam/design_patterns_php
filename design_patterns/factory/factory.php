@@ -142,7 +142,7 @@ function writeln_html($line_in) {
 $config_observer_subject = array('path_to_class' =>'observer','classe'=>'PatternSubject');
 $config_observer_subject2 = array('path_to_class' =>'singleton','classe'=>'MySQL');
 $config_observer_observer = array('path_to_class' =>'observer','classe'=>'PatternObserver');
-
+$config_observer_subject3 = array('path_to_class' =>'prototype','classe'=>'PHPBookPrototype');//////$sqlProto
 
 $instance2->Close();
 try
@@ -165,14 +165,17 @@ catch (RuntimeException $e)
 }
 
 $instance_subject = MySQL::getInstance($host='192.168.1.35',$user='test',$password='test',$database='test');
-
-
+$dependance = new DBFactory();///testing
+$pattern_observer=$dependance->dependance();///testing
 writeln('BEGIN TESTING OBSERVER PATTERN');
 writeln('');
 
 //$patternGossiper = new PatternSubject();
 //$patternGossipFan = new PatternObserver();
+
+
 $subject->attach($observer);
+//$observer->attach($subject);
 $subject->updateFavorites('abstract factory, decorator, visitor');
 $subject->updateFavorites('abstract factory, observer, decorator');
 $subject->detach($observer);
