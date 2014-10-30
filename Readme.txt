@@ -28,3 +28,6 @@ vers. 1.0.0.5 - 12/09/2014
 
 7.  add factory class 
 
+
+8 add recursive algorithms LinearSum in php
+
