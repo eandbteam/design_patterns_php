@@ -53,13 +53,9 @@ echo 'memory peak usage avant   '.number_format(memory_get_peak_usage ()).'<br>'
 
 //array_shift
 //array_merge
-$output  =  array_slice($A,0,$i-1);
-$output2 = array_slice($A,$i-1,$j-$i+1);
-$output3 = array_slice($A,$j,count($A));
 
-$output4 = array_reverse($output2);
 
-$output5 = array_merge($output,$output4,$output3);
+$output5 = array_merge(array_slice($A,0,$i-1),array_reverse(array_slice($A,$i-1,$j-$i+1)),array_slice($A,$j,count($A))); ///FUNCTION PHP
 
 
 
