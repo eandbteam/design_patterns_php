@@ -31,7 +31,7 @@ echo 'Mem après collect_cycles : ' . number_format(memory_get_usage(), 0, '.', '
  * 
  * 
  */
-$length = 12;
+$length = 100;
 $A =array();
 for ($i = 1 ;$i <=$length;$i++){
 	$A[$i] = $i;
@@ -41,9 +41,9 @@ var_dump($A);
 
 
 //$A=array(1=>1,2=>2,3=>3,4=>4,5=>5,6=>6,7=>7,8=>8,9=>9,10=>10);
-$i=1;
-$j=6;
-
+$i=40;
+$j=60;
+$B = $A;
 
 echo "Garbage Colletor enabled : " . (gc_enabled() ? 'OUI' : 'NON') . "\n".'<br>';
 
@@ -51,33 +51,44 @@ echo "Collect cycles : " . gc_collect_cycles() . "\n".'<br>';
 //echo 'Mem avant collect_cycles : ' . number_format(memory_get_usage(), 0, '.', ',') . " octets\n".'<br>';
 echo 'memory peak usage avant   '.number_format(memory_get_peak_usage ()).'<br>';
 
-$output = array_merge ( array_reverse(array_slice($A, $i-1, $j)) ,array_chunk ( $A ,  $j  )[1] );///FUNCTION PHP
+//array_shift
+//array_merge
+$output  =  array_slice($A,0,$i-1);
+$output2 = array_slice($A,$i-1,$j-$i+1);
+$output3 = array_slice($A,$j,count($A));
+
+$output4 = array_reverse($output2);
+
+$output5 = array_merge($output,$output4,$output3);
+
+
+
 
 echo "Collect cycles : " . gc_collect_cycles() . "\n".'<br>';
 //echo 'Mem après collect_cycles : ' . number_format(memory_get_usage(), 0, '.', ',') . " octets\n".'<br>';
 
 echo 'memory peak usage apres   '.number_format(memory_get_peak_usage ()).'<br>';
 echo 'result function php '.'<br>';
-var_dump($output);
+var_dump($output5);
 echo 'result function php '.'<br>';
 
 
 
 
-$polo=ReverseArray($A,$i,$j);
+$polo=ReverseArray($B,$i,$j);
 echo 'result recursive function'.'<br>';
 var_dump($polo);
 echo 'result recursive function'.'<br>';
 
-function ReverseArray($A,$i,$j){
+function ReverseArray($B,$i,$j){
 	
 	if($i >= $j){
-		return $A;
+		return $B;
 	}
 if (($i < $j) ){
-	$temp = $A[$i];
-	$A[$i] = $A[$j];
-	$A[$j] = $temp;
+	$temp = $B[$i];
+	$B[$i] = $B[$j];
+	$B[$j] = $temp;
 	
 	echo "Collect cycles : " . gc_collect_cycles() . "\n".'<br>';
 	echo 'memory peak usage apres   '.number_format(memory_get_peak_usage ()).'<br>';
@@ -88,7 +99,7 @@ if (($i < $j) ){
 	//var_dump($A);
 	//return $A;
 	
-	 return ReverseArray($A,$i+1,$j-1);
+	 return ReverseArray($B,$i+1,$j-1);
 }
 	
 	
